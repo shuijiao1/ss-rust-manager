@@ -2,7 +2,7 @@
 set -Eeuo pipefail
 
 VERSION="0.1.2"
-REPO_RAW="https://raw.githubusercontent.com/shuijiao1/ss-rust-manager/main"
+REPO_RAW="https://raw.githubusercontent.com/shuijiao1/SS-Rust-Manager/main"
 UPDATE_URL="$REPO_RAW/ss-rust.sh"
 VERSION_URL="$REPO_RAW/version.txt"
 BIN="/usr/local/bin/ss-rust"
@@ -68,7 +68,7 @@ menu() {
     say "${CYAN}============================================${NC}"
     say "          ${CYAN}Shadowsocks-Rust 管理脚本 v$VERSION${NC}"
     say "${CYAN}============================================${NC}"
-    say "${GREEN}仓库: github.com/shuijiao1/ss-rust-manager${NC}"
+    say "${GREEN}仓库: github.com/shuijiao1/SS-Rust-Manager${NC}"
     say "${GREEN}作者: shuijiao1${NC}"
     say "${CYAN}============================================${NC}"
     say "安装状态：$(install_status)"
