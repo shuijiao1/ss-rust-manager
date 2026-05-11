@@ -1,6 +1,6 @@
 # SS-Rust-Manager
 
-水饺自用 Shadowsocks-Rust 管理脚本，只安装 SS，不包含 ShadowTLS。
+Shadowsocks-Rust 管理脚本，只安装 SS，不包含 ShadowTLS。
 
 ## 一键运行
 
