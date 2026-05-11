@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -Eeuo pipefail
 
-VERSION="0.1.1"
+VERSION="0.1.2"
 REPO_RAW="https://raw.githubusercontent.com/shuijiao1/ss-rust-manager/main"
 UPDATE_URL="$REPO_RAW/ss-rust.sh"
 VERSION_URL="$REPO_RAW/version.txt"
@@ -64,37 +64,41 @@ menu() {
   ensure_deps
   while true; do
     clear || true
-    say "${YELLOW}▂﹍▂﹍▂﹍▂﹍▂﹍▂﹍▂﹍▂﹍▂﹍▂﹍▂${NC}"
-    say "              ${CYAN}Shadowsocks-Rust 管理脚本 v$VERSION${NC}"
-    say "              ${BLUE}仓库: github.com/shuijiao1/ss-rust-manager${NC}"
-    say "${YELLOW}▂﹍▂﹍▂﹍▂﹍▂﹍▂﹍▂﹍▂﹍▂﹍▂﹍▂${NC}"
-    say ""
+    say "${CYAN}============================================${NC}"
+    say "          ${CYAN}Shadowsocks-Rust 管理脚本 v$VERSION${NC}"
+    say "${CYAN}============================================${NC}"
+    say "${GREEN}仓库: github.com/shuijiao1/ss-rust-manager${NC}"
+    say "${GREEN}作者: shuijiao1${NC}"
+    say "${CYAN}============================================${NC}"
     say "${YELLOW}服务状态：$(status_line)${NC}"
-    say "${YELLOW}架构支持：仅 amd64 / x86_64${NC}"
     say ""
-    say "${YELLOW}------------------${NC}"
-    say "1) 安装/更新 ss-rust"
-    say "2) 修改 ss-rust 配置"
-    say "3) 查看 ss-rust 配置"
-    say "4) 启动 ss-rust"
-    say "5) 停止 ss-rust"
-    say "6) 重启 ss-rust"
-    say "7) 查看运行状态"
-    say "8) 检查脚本更新"
-    say "9) 卸载 ss-rust"
-    say "0) 退出脚本"
-    say "${YELLOW}------------------${NC}"
-    read -rp "请输入选项: " c
+    say "${YELLOW}=== 基础功能 ===${NC}"
+    say "${GREEN}1.${NC} 安装/更新 ss-rust"
+    say "${GREEN}2.${NC} 卸载 ss-rust"
+    say "${GREEN}3.${NC} 修改配置"
+    say "${GREEN}4.${NC} 查看配置"
+    say "${GREEN}5.${NC} 重启服务"
+    say ""
+    say "${YELLOW}=== 服务管理 ===${NC}"
+    say "${GREEN}6.${NC} 启动服务"
+    say "${GREEN}7.${NC} 停止服务"
+    say "${GREEN}8.${NC} 查看服务状态"
+    say ""
+    say "${YELLOW}=== 系统功能 ===${NC}"
+    say "${GREEN}9.${NC} 检查脚本更新"
+    say "${GREEN}0.${NC} 退出脚本"
+    say "${CYAN}============================================${NC}"
+    read -rp "请输入选项 [0-9]: " c
     case "$c" in
       1) install_ss ;;
-      2) modify_config ;;
-      3) view_config ;;
-      4) service_ctl start ;;
-      5) service_ctl stop ;;
-      6) service_ctl restart ;;
-      7) service_ctl status ;;
-      8) check_update ;;
-      9) uninstall_ss ;;
+      2) uninstall_ss ;;
+      3) modify_config ;;
+      4) view_config ;;
+      5) service_ctl restart ;;
+      6) service_ctl start ;;
+      7) service_ctl stop ;;
+      8) service_ctl status ;;
+      9) check_update ;;
       0) exit 0 ;;
       *) err "无效选项" ;;
     esac
