@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -Eeuo pipefail
 
-VERSION="0.1.2"
+VERSION="0.1.3"
 REPO_RAW="https://raw.githubusercontent.com/shuijiao1/SS-Rust-Manager/main"
 UPDATE_URL="$REPO_RAW/ss-rust.sh"
 VERSION_URL="$REPO_RAW/version.txt"
@@ -19,7 +19,7 @@ install_pkg(){ if have apt-get; then apt-get update && DEBIAN_FRONTEND=nonintera
 ensure_deps(){ local m=(); for c in curl tar xz jq systemctl openssl; do have "$c" || m+=("$c"); done; ((${#m[@]}==0)) || install_pkg curl tar xz-utils jq systemd openssl coreutils; }
 validate_port(){ [[ "$1" =~ ^[0-9]+$ ]] && ((10#$1>=1 && 10#$1<=65535)); }
 rand_port(){ echo $((RANDOM % 55536 + 10000)); }
-rand_pass(){ openssl rand -base64 18 | tr -d '=+/' | cut -c1-20; }
+rand_pass(){ openssl rand -base64 16; }
 urlencode(){ local LC_ALL=C s="$1" o="" i c h; for ((i=0;i<${#s};i++)); do c=${s:i:1}; case "$c" in [a-zA-Z0-9.~_-]) o+="$c";; *) printf -v h '%%%02X' "'$c"; o+="$h";; esac; done; printf '%s' "$o"; }
 
 asset_regex(){ case "$(uname -m)" in x86_64|amd64) echo 'x86_64-unknown-linux-gnu\.tar\.xz$';; *) err "暂只支持 amd64/x86_64，当前架构：$(uname -m)"; exit 1;; esac; }
