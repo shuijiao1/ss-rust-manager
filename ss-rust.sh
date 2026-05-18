@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -Eeuo pipefail
 
-VERSION="0.1.4"
+VERSION="0.1.5"
 REPO_RAW="https://raw.githubusercontent.com/shuijiao1/SS-Rust-Manager/main"
 UPDATE_URL="$REPO_RAW/ss-rust.sh"
 VERSION_URL="$REPO_RAW/version.txt"
@@ -52,8 +52,7 @@ select_method(){
   say "${GREEN}4.${NC} aes-128-gcm" >&2
   say "${GREEN}5.${NC} aes-256-gcm" >&2
   say "${GREEN}6.${NC} chacha20-ietf-poly1305" >&2
-  say "${GREEN}7.${NC} xchacha20-ietf-poly1305" >&2
-  read -rp "请输入选项 [1-7]: " c
+  read -rp "请输入选项 [1-6]: " c
   case "${c:-}" in
     "" ) echo "$default" ;;
     1) echo "2022-blake3-aes-128-gcm" ;;
@@ -62,7 +61,6 @@ select_method(){
     4) echo "aes-128-gcm" ;;
     5) echo "aes-256-gcm" ;;
     6) echo "chacha20-ietf-poly1305" ;;
-    7) echo "xchacha20-ietf-poly1305" ;;
     *) err "无效选项"; return 1 ;;
   esac
 }
