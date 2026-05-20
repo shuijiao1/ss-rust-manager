@@ -26,12 +26,6 @@
 bash <(curl -Ls https://ss.shuijiao.de)
 ```
 
-备用方式：
-
-```bash
-bash <(curl -Ls https://raw.githubusercontent.com/shuijiao1/SS-Rust-Manager/main/ss-rust.sh)
-```
-
 ---
 
 ## ⚙️ 版本与发布

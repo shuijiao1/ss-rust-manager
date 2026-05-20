@@ -26,12 +26,6 @@
 bash <(curl -Ls https://ss.shuijiao.de)
 ```
 
-Fallback:
-
-```bash
-bash <(curl -Ls https://raw.githubusercontent.com/shuijiao1/SS-Rust-Manager/main/ss-rust.sh)
-```
-
 ---
 
 ## ⚙️ Versioning and Releases
